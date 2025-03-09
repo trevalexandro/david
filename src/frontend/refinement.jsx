@@ -1,4 +1,4 @@
-import {Box, Select, Stack, Heading, AdfRenderer, List, ListItem, TextArea, Button, Inline, Label, RequiredAsterisk, Textfield} from '@forge/react';
+import {Box, Select, Stack, Heading, AdfRenderer, List, ListItem, TextArea, Button, Inline, Label, RequiredAsterisk, Textfield, HelperMessage} from '@forge/react';
 import React, {useState} from 'react';
 import { requestJira } from '@forge/bridge';
 
@@ -104,7 +104,7 @@ const Refinement = () => {
                         onInputChange={onIssueSearchChange}
                         onChange={onIssueSelectChange}
                         options={issueSearchResults}
-                        placeholder="Search for an issue to refine"
+                        placeholder="Find an issue to refine"
                     />
                 </Box>
                 <Stack>
@@ -153,16 +153,17 @@ const Refinement = () => {
                 <Box paddingBlockEnd={'space.200'}>
                     <Heading as='h1'>Final Estimate</Heading>
                 </Box>
-                <Inline space='space.200' alignBlock='end'>
+                <Box paddingBlockEnd={'space.200'}>
                     <Stack>
                         <Label labelFor='final-estimate'>
-                            This will update the story points on the issue
+                            This will update the Story Points field on the issue
                             <RequiredAsterisk />
                         </Label>
                         <Textfield defaultValue='5' id='final-estimate' />
+                        <HelperMessage>Contact your Jira admin to change what field gets updated</HelperMessage>
                     </Stack>
-                    <Button appearance='primary' iconAfter='check'>Update Issue</Button>
-                </Inline>
+                </Box>
+                <Button appearance='primary' iconAfter='check'>Update Issue</Button>
             </Box>
         </Inline>
     );

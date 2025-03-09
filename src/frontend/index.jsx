@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ForgeReconciler, { Tabs, TabList, Tab, TabPanel, Box } from '@forge/react';
 import { invoke } from '@forge/bridge';
 import Refinement from './refinement';
+import SprintStarter from './sprint-starter';
 
 const App = () => {
   const [data, setData] = useState(null);
@@ -15,15 +16,17 @@ const App = () => {
       <Tabs id="tabParent" onChange={(index) => setSelectedTab(index)} selected={selectedTab}>
         <TabList>
           <Tab>Refinement</Tab>
-          <Tab>Sprint Planning</Tab>
+          <Tab>Sprint Starter</Tab>
+          <Tab>Jira Admin</Tab>
         </TabList>
         <TabPanel>
           <Refinement />
         </TabPanel>
         <TabPanel>
-          <Box padding="space.300">
-            This is the content area of the second tab.
-          </Box>
+          <SprintStarter />
+        </TabPanel>
+        <TabPanel>
+          Hello World
         </TabPanel>
       </Tabs>
     </>
