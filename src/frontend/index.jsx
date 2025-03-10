@@ -3,6 +3,7 @@ import ForgeReconciler, { Tabs, TabList, Tab, TabPanel, Box } from '@forge/react
 import { invoke } from '@forge/bridge';
 import Refinement from './refinement';
 import SprintStarter from './sprint-starter';
+import JiraAdmin from './jira-admin';
 
 const App = () => {
   const [data, setData] = useState(null);
@@ -26,7 +27,7 @@ const App = () => {
           <SprintStarter />
         </TabPanel>
         <TabPanel>
-          Hello World
+          <JiraAdmin />
         </TabPanel>
       </Tabs>
     </>
